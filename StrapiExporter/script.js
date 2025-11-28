@@ -259,6 +259,21 @@ class StrapiExporter {
     }
 
     /**
+     * Get error message for HTTP status code
+     * @param {number} statusCode - HTTP status code
+     * @returns {string} Localized error message
+     */
+    getErrorMessage(statusCode) {
+        if (statusCode === 401 || statusCode === 403) {
+            return utils.localize('export.error.permission');
+        } else if (statusCode === 404) {
+            return utils.localize('export.error.collection');
+        } else {
+            return utils.localize('export.error.connection') + ' (Status: ' + statusCode + ')';
+        }
+    }
+
+    /**
      * Export data to Strapi
      * Posts each time entry as a separate row to the Strapi collection
      */
@@ -298,13 +313,7 @@ class StrapiExporter {
                 successCount++;
             } else {
                 failCount++;
-                if (statusCode === 401 || statusCode === 403) {
-                    lastError = utils.localize('export.error.permission');
-                } else if (statusCode === 404) {
-                    lastError = utils.localize('export.error.collection');
-                } else {
-                    lastError = utils.localize('export.error.connection') + ' (Status: ' + statusCode + ')';
-                }
+                lastError = this.getErrorMessage(statusCode);
             }
         }
         
@@ -322,9 +331,12 @@ class StrapiExporter {
             );
         } else if (successCount > 0) {
             // Partial success
+            const partialMessage = utils.localize('export.error.partial')
+                .replace('{success}', successCount.toString())
+                .replace('{fail}', failCount.toString());
             tyme.showAlert(
                 utils.localize('export.error.title'),
-                successCount + ' entries exported, ' + failCount + ' failed.\n\n' + lastError
+                partialMessage + '\n\n' + lastError
             );
         } else {
             // All failed
