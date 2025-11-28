@@ -362,7 +362,8 @@ class StrapiExporter {
                 } else {
                     // Calculate days since start
                     const daysSinceStart = Math.floor((now - startDate) / (1000 * 60 * 60 * 24));
-                    const daysTillNext = intervalDays - (daysSinceStart % intervalDays);
+                    // Ensure at least 1 day to prevent immediate re-execution
+                    const daysTillNext = intervalDays - (daysSinceStart % intervalDays) || intervalDays;
                     nextDate = new Date(now);
                     nextDate.setDate(nextDate.getDate() + daysTillNext);
                 }
