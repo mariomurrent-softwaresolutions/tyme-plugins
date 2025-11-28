@@ -1,7 +1,7 @@
 {
   "en": {
     "plugin.name": "Strapi Exporter",
-    "plugin.summary": "Export your selected projects and tasks to JSON and send them to a Strapi CMS. Configure your Strapi instance URL and API key, and optionally schedule recurring exports.",
+    "plugin.summary": "Export your time entries to a Strapi CMS. Each time entry is stored as a separate row with embedded project and task information, allowing for easy querying and reporting.",
     "locale.identifier": "en-US",
     "input.url": "Strapi URL",
     "input.url.placeholder": "https://your-strapi-instance.com",
@@ -38,6 +38,7 @@
     "export.error.collection": "Collection not found. Please verify the collection name exists in Strapi.",
     "export.error.permission": "Permission denied. Please check your API Token permissions.",
     "export.error.empty": "No time entries found for the selected criteria.",
+    "export.error.partial": "{success} entries exported, {fail} failed.",
     "test.success.title": "Connection Successful",
     "test.success.message": "Successfully connected to Strapi instance.",
     "test.error.title": "Connection Failed",
@@ -51,7 +52,7 @@
   },
   "de": {
     "plugin.name": "Strapi Exporter",
-    "plugin.summary": "Exportiere deine ausgewählten Projekte und Aufgaben als JSON und sende sie an ein Strapi CMS. Konfiguriere deine Strapi-Instanz-URL und API-Schlüssel und plane optional wiederkehrende Exporte.",
+    "plugin.summary": "Exportiere deine Zeiteinträge in ein Strapi CMS. Jeder Zeiteintrag wird als separate Zeile mit eingebetteten Projekt- und Aufgabeninformationen gespeichert, was einfaches Abfragen und Berichten ermöglicht.",
     "locale.identifier": "de-DE",
     "input.url": "Strapi URL",
     "input.url.placeholder": "https://deine-strapi-instanz.com",
@@ -88,6 +89,7 @@
     "export.error.collection": "Collection nicht gefunden. Bitte überprüfe, ob die Collection in Strapi existiert.",
     "export.error.permission": "Zugriff verweigert. Bitte überprüfe die Berechtigungen deines API Tokens.",
     "export.error.empty": "Keine Zeiteinträge für die ausgewählten Kriterien gefunden.",
+    "export.error.partial": "{success} Einträge exportiert, {fail} fehlgeschlagen.",
     "test.success.title": "Verbindung erfolgreich",
     "test.success.message": "Verbindung zur Strapi-Instanz erfolgreich hergestellt.",
     "test.error.title": "Verbindung fehlgeschlagen",

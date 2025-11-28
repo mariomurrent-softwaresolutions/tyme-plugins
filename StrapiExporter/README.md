@@ -18,10 +18,11 @@ This plugin lets you export your selected projects with their tasks to JSON and 
 
 ### In Strapi
 
-1. Create a collection type in your Strapi instance to store the export data (default name: `tyme-exports`)
-2. The collection should accept a JSON/text field for the export data
-3. Generate an API Token in Settings > API Tokens
-4. Make sure the token has write permissions for the collection
+1. Create a collection type in your Strapi instance to store the time entries (default name: `tyme-exports`)
+2. The collection should have fields matching the exported data structure (see below)
+3. Each time entry will be stored as a separate row in the collection
+4. Generate an API Token in Settings > API Tokens
+5. Make sure the token has write permissions for the collection
 
 ### In Tyme
 
@@ -35,41 +36,36 @@ This plugin lets you export your selected projects with their tasks to JSON and 
 
 ## Exported Data Structure
 
-The plugin exports data in the following JSON structure:
+The plugin exports each time entry as a separate row in your Strapi collection. Each entry contains the time entry data along with embedded project and task information:
 
 ```json
 {
-  "exportDate": "2025-01-15T10:30:00.000Z",
-  "dateRange": {
-    "start": "2025-01-01T00:00:00.000Z",
-    "end": "2025-01-15T23:59:59.000Z"
-  },
-  "currency": "EUR",
-  "projects": [
-    {
-      "id": "project_id",
-      "name": "Project Name",
-      "category": "Category Name",
-      "tasks": [
-        {
-          "id": "task_id",
-          "name": "Task Name",
-          "entries": [...],
-          "totalDuration": 120,
-          "totalSum": 200.00
-        }
-      ],
-      "totalDuration": 480,
-      "totalSum": 800.00
-    }
-  ],
-  "summary": {
-    "projectCount": 2,
-    "totalDuration": 960,
-    "totalSum": 1600.00
-  }
+  "id": "entry_id",
+  "project_id": "project_id",
+  "project_name": "Project Name",
+  "category": "Category Name",
+  "category_id": "category_id",
+  "task_id": "task_id",
+  "task_name": "Task Name",
+  "subtask": "Subtask Name",
+  "subtask_id": "subtask_id",
+  "start": "2025-01-15T09:00:00+01:00",
+  "end": "2025-01-15T10:30:00+01:00",
+  "duration": 90,
+  "duration_unit": "m",
+  "billing": "UNBILLED",
+  "rate": 100.00,
+  "rate_unit": "EUR",
+  "sum": 150.00,
+  "sum_unit": "EUR",
+  "type": "timed",
+  "user": "User Name",
+  "user_id": "user_id",
+  "note": "Optional note text"
 }
 ```
+
+This flat structure allows you to use a single Strapi table/collection where each row represents one time entry with all related project information embedded directly.
 
 ## Schedule Options
 
