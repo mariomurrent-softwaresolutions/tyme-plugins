@@ -1,0 +1,148 @@
+[
+  {
+    "id": "strapiUrl",
+    "type": "text",
+    "name": "input.url",
+    "placeholder": "input.url.placeholder",
+    "persist": true
+  },
+  {
+    "id": "apiKey",
+    "type": "securetext",
+    "name": "input.key",
+    "placeholder": "input.key.placeholder",
+    "persist": true
+  },
+  {
+    "id": "apiKeyHint",
+    "type": "hint",
+    "name": "",
+    "value": "input.key.hint"
+  },
+  {
+    "id": "separator1",
+    "type": "separator",
+    "name": ""
+  },
+  {
+    "id": "collectionName",
+    "type": "text",
+    "name": "input.collection",
+    "placeholder": "input.collection.placeholder",
+    "value": "tyme-exports",
+    "persist": true
+  },
+  {
+    "id": "collectionHint",
+    "type": "hint",
+    "name": "",
+    "value": "input.collection.hint"
+  },
+  {
+    "id": "separator2",
+    "type": "separator",
+    "name": ""
+  },
+  {
+    "id": "dateRange",
+    "type": "daterange",
+    "name": "input.daterange"
+  },
+  {
+    "id": "teamMemberID",
+    "type": "teammembers",
+    "name": ""
+  },
+  {
+    "id": "taskIDs",
+    "type": "tasks",
+    "name": ""
+  },
+  {
+    "id": "separator3",
+    "type": "separator",
+    "name": ""
+  },
+  {
+    "id": "includeNotes",
+    "type": "checkbox",
+    "name": "input.notes",
+    "value": "true",
+    "persist": true
+  },
+  {
+    "id": "includeNonBillable",
+    "type": "checkbox",
+    "name": "input.nonbillable",
+    "value": "false",
+    "persist": true
+  },
+  {
+    "id": "onlyUnbilled",
+    "type": "checkbox",
+    "name": "input.unbilled",
+    "value": "false",
+    "persist": true
+  },
+  {
+    "id": "separator4",
+    "type": "separator",
+    "name": ""
+  },
+  {
+    "id": "enableSchedule",
+    "type": "checkbox",
+    "name": "input.schedule.enable",
+    "value": "false",
+    "persist": true,
+    "actionFunction": "strapiExporter.toggleScheduleOptions()"
+  },
+  {
+    "id": "scheduleType",
+    "type": "dropdown",
+    "name": "input.schedule.type",
+    "values": [
+      {
+        "lastOfMonth": "input.schedule.lastOfMonth"
+      },
+      {
+        "everyNDays": "input.schedule.everyNDays"
+      },
+      {
+        "specificDate": "input.schedule.specificDate"
+      }
+    ],
+    "persist": true,
+    "actionFunction": "strapiExporter.updateScheduleUI()"
+  },
+  {
+    "id": "intervalDays",
+    "type": "text",
+    "name": "input.schedule.interval",
+    "placeholder": "input.schedule.interval.placeholder",
+    "value": "30",
+    "persist": true
+  },
+  {
+    "id": "startDate",
+    "type": "date",
+    "name": "input.schedule.startDate"
+  },
+  {
+    "id": "scheduleHint",
+    "type": "hint",
+    "name": "",
+    "value": "input.schedule.hint"
+  },
+  {
+    "id": "separator5",
+    "type": "separator",
+    "name": ""
+  },
+  {
+    "id": "testConnection",
+    "type": "button",
+    "name": "input.test.connection",
+    "actionFunction": "strapiExporter.testConnection()"
+  }
+]

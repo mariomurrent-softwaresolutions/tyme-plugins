@@ -1,0 +1,14 @@
+{
+  "id": "strapi_exporter",
+  "tymeMinVersion": "2025.12",
+  "version": "1.0",
+  "type": "export",
+  "author": "Tyme Community",
+  "authorUrl": "https://github.com/tyme-app/plugins/tree/main/StrapiExporter",
+  "icon": "strapi_icon.png",
+  "scriptName": "script.js",
+  "scriptMain": "strapiExporter.exportData()",
+  "scriptPreview": "strapiExporter.generatePreview()",
+  "formName": "form.json",
+  "localizationName": "localization.json"
+}
